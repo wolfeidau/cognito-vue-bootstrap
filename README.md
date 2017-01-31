@@ -12,6 +12,8 @@ This example application currently illustrates the following:
 * Log In to the application
 * Log Out of the application
 
+Demo version is located at https://cognito-vue-bootstrap.wolfe.id.au/
+
 # Build Setup
 
 Before you start have a read over [What is Amazon Cognito?](http://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html)
