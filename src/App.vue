@@ -86,7 +86,7 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
-  text-align: center;
+  /*text-align: center;*/
   border-bottom: 1px solid #e5e5e5;
 }
 .jumbotron .btn {
@@ -96,7 +96,7 @@ body {
 
 /* Supporting marketing content */
 .marketing {
-  margin: 40px 0;
+  margin: 10px 0 40px 0;
 }
 .marketing p + h4 {
   margin-top: 28px;

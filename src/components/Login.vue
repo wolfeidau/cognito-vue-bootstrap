@@ -40,7 +40,7 @@ export default {
           this.errMsg = err.message
           console.error(err)
         } else {
-          this.$router.replace(this.$route.query.redirect || '/')
+          this.$router.replace(this.$route.query.redirect || '/dashboard')
         }
       })
     }
