@@ -7,13 +7,22 @@
 </template>
 
 <script>
-import auth from '../auth'
 import jwtDecode from 'jwt-decode'
 export default {
   data () {
     return {
-      token: jwtDecode(auth.getToken())
+      token: 'Loading token..'
     }
+  },
+  created () {
+    this.$cognitoAuth.getIdToken((err, jwtToken) => {
+      if (err) {
+        console.log("Dashboard: Couldn't get the session:", err, err.stack)
+        return
+      }
+      this.token = jwtDecode(jwtToken)
+    })
   }
 }
+
 </script>

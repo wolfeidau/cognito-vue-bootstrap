@@ -16,12 +16,22 @@
 </template>
 
 <script>
-import auth from '../auth'
 export default {
   data () {
     return {
-      loggedIn: auth.loggedIn()
+      loggedIn: false
     }
+  },
+  created: function () {
+    this.$cognitoAuth.isAuthenticated((err, loggedIn) => {
+      if (err) {
+        console.log("Home: Couldn't get the session:", err, err.stack)
+        return
+      }
+      if (loggedIn) {
+        this.loggedIn = true
+      }
+    })
   }
 }
 </script>

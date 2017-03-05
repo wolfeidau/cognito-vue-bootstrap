@@ -1,13 +1,13 @@
 import Vue from 'vue'
-import Hello from 'src/components/Hello'
+import Home from 'src/components/Home'
 
-describe('Hello.vue', () => {
+describe('Home.vue', () => {
   it('should render correct contents', () => {
     const vm = new Vue({
       el: document.createElement('div'),
-      render: (h) => h(Hello)
+      render: (h) => h(Home)
     })
-    expect(vm.$el.querySelector('.hello h1').textContent)
-      .to.equal('Welcome to Your Vue.js App')
+    expect(vm.$el.querySelector('h2').textContent)
+      .to.equal('Welcome')
   })
 })

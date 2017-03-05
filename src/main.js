@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import CognitoAuth from './cognito'
+import {config} from './config'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.use(CognitoAuth)
 
 import auth from './auth'
 import App from './App.vue'
@@ -24,6 +27,8 @@ function requireAuth (to, from, next) {
     next()
   }
 }
+
+const cognitoAuth = new CognitoAuth(config)
 
 const router = new VueRouter({
   linkActiveClass: 'active',
@@ -48,6 +53,7 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  cognitoAuth,
   // replace the content of <div id="app"></div> with App
   render: h => h(App)
 })
