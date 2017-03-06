@@ -18,22 +18,20 @@ Demo version is located at https://cognito-vue-bootstrap.wolfe.id.au/
 
 Before you start have a read over [What is Amazon Cognito?](http://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html)
 
-To setup this project you first need to configure the Cognito service in the [AWS console](https://console.aws.amazon.com/cognito/users) then update `src/config.js`.
+To setup this project you first need to configure the Cognito service in the [AWS console](https://console.aws.amazon.com/cognito/users) then create `.env` file.
 
 There are two sections to the Cognito configuration:
 
 1. User Pools
 2. Federated Identity Pools
 
-These are configured in that order and during the configuration process you will extract the following properties and update the `src/config.js`.
+These are configured in that order and during the configuration process you will extract the following properties and create the `.env` using the `.env.example` I have included.
 
-```javascript
-export default {
-  region: '', // the region which Cognito is configured
-  UserPoolId: '', // this is the Pool Id of your Cognito user pool
-  ClientId: '' // this is the client id in the Cognito user pool Apps section
-  IdentityPoolId: '', // this is the identity pool id under federated identities
-}
+```
+AWS_REGION=us-west-2
+COGNITO_USER_POOL_ID=us-west-2_xxx
+COGNITO_CLIENT_ID=xxx
+COGNITO_IDENTITY_POOL_ID=us-west-2:xxxx
 ```
 
 I use [yarn](https://yarnpkg.com/) to build and run this project.
