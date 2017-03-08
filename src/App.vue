@@ -23,15 +23,21 @@
 </template>
 
 <script>
-import auth from './auth'
 export default {
   data () {
     return {
-      loggedIn: auth.loggedIn()
+      loggedIn: false
     }
   },
   created () {
-    auth.onChange = loggedIn => {
+    this.$cognitoAuth.isAuthenticated((err, loggedIn) => {
+      if (err) {
+        console.err("App: Couldn't get the session:", err, err.stack)
+        return
+      }
+      this.loggedIn = loggedIn
+    })
+    this.$cognitoAuth.onChange = loggedIn => {
       this.loggedIn = loggedIn
     }
   }

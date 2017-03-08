@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import auth from '../auth'
 export default {
   data () {
     return {
@@ -36,13 +35,13 @@ export default {
   },
   methods: {
     signup () {
-      auth.signup(this.username, this.email, this.pass, (err, result) => {
+      this.$cognitoAuth.signup(this.username, this.email, this.pass, (err, result) => {
         if (err) {
           this.error = true
           this.errMsg = err.message
           console.error(err)
         } else {
-          console.log(JSON.stringify(result))
+          console.log('Signup successful:', result)
           this.$router.replace('/confirm')
         }
       })

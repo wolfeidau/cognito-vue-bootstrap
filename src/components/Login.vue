@@ -9,20 +9,22 @@
     </div>
     <form @submit.prevent="login">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter your username" v-model="username">
+        <input id="inputUsername" type="text" class="form-control" placeholder="Enter your username" v-model="username">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Enter your password" v-model="pass">
+        <input id="inputPassword" type="password" class="form-control" placeholder="Enter your password" v-model="pass">
       </div>
       <button class="btn btn-primary">login</button>
     </form>
     <div class="row marketing">
+    <p>
+      <router-link to="/signup">Create an account</router-link> or <router-link to="/signup">reset password</router-link>.
+    </p>
     </div>
   </div>
 </template>
 
 <script>
-import auth from '../auth'
 export default {
   data () {
     return {
@@ -34,12 +36,13 @@ export default {
   },
   methods: {
     login () {
-      auth.login(this.username, this.pass, (err, result) => {
+      this.$cognitoAuth.signin(this.username, this.pass, (err, result) => {
         if (err) {
           this.error = true
           this.errMsg = err.message
           console.error(err)
         } else {
+          console.log('Login Successful:', result)
           this.$router.replace(this.$route.query.redirect || '/dashboard')
         }
       })

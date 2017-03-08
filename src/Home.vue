@@ -24,6 +24,7 @@ export default {
   },
   created: function () {
     this.$cognitoAuth.isAuthenticated((err, loggedIn) => {
+      console.log('Home login check', err, loggedIn)
       if (err) {
         console.err("Home: Couldn't get the session:", err, err.stack)
         return
