@@ -21,7 +21,6 @@ export default class CognitoAuth {
 
   isAuthenticated (cb) {
     let cognitoUser = this.getCurrentUser()
-
     if (cognitoUser != null) {
       cognitoUser.getSession((err, session) => {
         if (err) {
@@ -95,6 +94,19 @@ export default class CognitoAuth {
       onFailure: function (err) {
         cb(err)
       }
+    })
+  }
+
+  changePassword (oldPassword, newPassword, cb) {
+    let cognitoUser = this.getCurrentUser()
+
+    // getSession() will load valid tokens cached in the local store so we can
+    // authenticate and change the users password
+    cognitoUser.getSession((err, session) => {
+      if (err) {
+        return cb(err, false)
+      }
+      cognitoUser.changePassword(oldPassword, newPassword, cb)
     })
   }
 
