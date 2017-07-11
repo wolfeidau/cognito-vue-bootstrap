@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Dashboard</h2>
-    <p>Yay you made it!</p>
+    <p>Yay you made {{ user.username }} it!</p>
     <blockquote>{{ token }}</blockquote>
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
         return
       }
       this.token = jwtDecode(jwtToken)
+      this.user = this.$cognitoAuth.getCurrentUser()
     })
   }
 }

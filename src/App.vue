@@ -5,6 +5,7 @@
         <ul class="nav nav-pills pull-right">
           <router-link tag="li" to="/" exact><a>Home</a></router-link>
           <router-link tag="li" v-if="loggedIn" to="/dashboard"><a>Dashboard</a></router-link>
+          <router-link tag="li" v-if="loggedIn" to="/change_password"><a>Change Password</a></router-link>
           <router-link tag="li" v-if="loggedIn" to="/logout"><a>Log out</a></router-link>
           <router-link tag="li" v-if="!loggedIn" to="/login"><a>Log in</a></router-link>
           <router-link tag="li" v-if="!loggedIn" to="/signup"><a>Sign Up</a></router-link>
