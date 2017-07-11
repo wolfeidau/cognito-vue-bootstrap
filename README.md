@@ -51,7 +51,7 @@ yarn build
 
 * Separate out configuration and make it easier!
 * Sort out Testing/Mocking
-* Add password change and recovery
+* ~~Add password change and recovery~~
 * Integrate congnito sync for user profile information
 
 For a more detailed explanation on how things work, checkout:
