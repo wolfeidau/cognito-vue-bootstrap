@@ -15,6 +15,8 @@ import Login from './components/Login.vue'
 import Signup from './components/Signup.vue'
 import Confirm from './components/Confirm.vue'
 import Dashboard from './components/Dashboard.vue'
+import PasswordReset from './components/PasswordReset.vue'
+import PasswordResetConfirm from './components/PasswordResetConfirm.vue'
 
 const cognitoAuth = new CognitoAuth(config)
 
@@ -43,6 +45,8 @@ const router = new VueRouter({
     { path: '/login', component: Login },
     { path: '/signup', component: Signup },
     { path: '/confirm', component: Confirm },
+    { path: '/reset_password', component: PasswordReset },
+    { path: '/confirm_reset_password', component: PasswordResetConfirm },
     { path: '/logout',
       beforeEnter (to, from, next) {
         cognitoAuth.logout()
