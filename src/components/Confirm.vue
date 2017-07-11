@@ -25,7 +25,7 @@
 export default {
   data () {
     return {
-      username: '',
+      username: this.$route.query.username,
       code: '',
       error: false,
       errMsg: 'An error occured.'

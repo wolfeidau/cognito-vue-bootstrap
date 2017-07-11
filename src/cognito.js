@@ -62,6 +62,42 @@ export default class CognitoAuth {
     cognitoUser.resendConfirmationCode(cb)
   }
 
+  forgotPassword (username, cb) {
+    let cognitoUser = new CognitoUser({
+      Username: username,
+      Pool: this.userPool
+    })
+
+    cognitoUser.forgotPassword({
+      onSuccess: (result) => {
+        cb(null, result)
+      },
+      onFailure: function (err) {
+        cb(err)
+      },
+      inputVerificationCode () {
+        // cb(Error('Verification code not implemented.'))
+        cb()
+      }
+    })
+  }
+
+  confirmPassword (username, code, password, cb) {
+    let cognitoUser = new CognitoUser({
+      Username: username,
+      Pool: this.userPool
+    })
+
+    cognitoUser.confirmPassword(code, password, {
+      onSuccess: (result) => {
+        cb(null, result)
+      },
+      onFailure: function (err) {
+        cb(err)
+      }
+    })
+  }
+
   signin (username, pass, cb) {
     let authenticationDetails = new AuthenticationDetails({
       Username: username,

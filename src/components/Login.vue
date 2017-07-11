@@ -18,7 +18,7 @@
     </form>
     <div class="row marketing">
     <p>
-      <router-link to="/signup">Create an account</router-link> or <router-link to="/signup">reset password</router-link>.
+      <router-link to="/signup">Create an account</router-link> or <router-link to="/reset_password">reset password</router-link>.
     </p>
     </div>
   </div>
