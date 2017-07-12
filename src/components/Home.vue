@@ -9,6 +9,8 @@
           <li>Signup using your email address, this will send through an activation code.</li>
           <li>Once you get the activation code enter it with your email address.</li>
           <li>Sign in with your credentials.</li>
+          <li>Request a password reset to recover an account.</li>
+          <li>Change your password.</li>
           <li>You should now be able to navigate to the dashboard and see your JWT token decoded</li>
         </ol>
       </div>
