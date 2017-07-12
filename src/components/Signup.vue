@@ -3,17 +3,17 @@
     <h2>Sign Up</h2>
     <p>Sign up for an account.</p>
     <div class="alert alert-danger" v-if="error">
-      <p v-if="error" class="error">{{ errMsg }}</p>
+      <p v-if="error" class="error">{{ error.message }}</p>
     </div>
     <form @submit.prevent="signup">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter your username" v-model="username">
+        <input type="text" class="form-control" placeholder="Enter your username" v-model="username" required>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter your email" v-model="email">
+        <input type="text" class="form-control" placeholder="Enter your email" v-model="email" required>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Enter your password" v-model="pass" >
+        <input type="password" class="form-control" placeholder="Enter your password" v-model="pass" required>
       </div>
       <button class="btn btn-primary">signup</button>
     </form>
@@ -29,16 +29,14 @@ export default {
       username: '',
       email: '',
       pass: '',
-      error: false,
-      errMsg: 'An error occured.'
+      error: null
     }
   },
   methods: {
     signup () {
       this.$cognitoAuth.signup(this.username, this.email, this.pass, (err, result) => {
         if (err) {
-          this.error = true
-          this.errMsg = err.message
+          this.error = err
           console.error(err)
         } else {
           console.log('Signup successful:', result)
