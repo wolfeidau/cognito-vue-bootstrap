@@ -5,7 +5,7 @@
       Log in to your account.
     </p>
     <div class="alert alert-danger" v-if="error">
-      <p v-if="error" class="error">{{ errMsg }}</p>
+      <p v-if="error" class="error">{{ error.message }}</p>
     </div>
     <form @submit.prevent="login">
       <div class="form-group">
@@ -30,16 +30,14 @@ export default {
     return {
       username: '',
       pass: '',
-      error: false,
-      errMsg: 'An error occured.'
+      error: null
     }
   },
   methods: {
     login () {
       this.$cognitoAuth.signin(this.username, this.pass, (err, result) => {
         if (err) {
-          this.error = true
-          this.errMsg = err.message
+          this.error = err
           console.error(err)
         } else {
           console.log('Login Successful:', result)

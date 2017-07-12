@@ -3,11 +3,11 @@
     <h2>Reset Password</h2>
     <p>Request a password reset.</p>
     <div class="alert alert-danger" v-if="error">
-      <p v-if="error" class="error">{{ errMsg }}</p>
+      <p v-if="error" class="error">{{ error.message }}</p>
     </div>
     <form @submit.prevent="passwordReset">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter your username" v-model="username">
+        <input type="text" class="form-control" placeholder="Enter your username" v-model="username" required>
       </div>
       <button class="btn btn-primary">reset password</button>
     </form>
@@ -21,16 +21,14 @@ export default {
   data () {
     return {
       username: '',
-      error: false,
-      errMsg: 'An error occured.'
+      error: null
     }
   },
   methods: {
     passwordReset () {
       this.$cognitoAuth.forgotPassword(this.username, (err, result) => {
         if (err) {
-          this.error = true
-          this.errMsg = err.message
+          this.error = err
           console.error(err)
         } else {
           console.log('Password reset successful:', result)

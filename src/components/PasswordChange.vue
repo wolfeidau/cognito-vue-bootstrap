@@ -3,14 +3,14 @@
     <h2>Change Password</h2>
     <p>Change your password.</p>
     <div class="alert alert-danger" v-if="error">
-      <p v-if="error" class="error">{{ errMsg }}</p>
+      <p v-if="error" class="error">{{ error.message }}</p>
     </div>
     <form @submit.prevent="passwordChange">
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Enter your password" v-model="oldpass" >
+        <input type="password" class="form-control" placeholder="Enter your password" v-model="oldpass" required>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Enter your new password" v-model="newpass" >
+        <input type="password" class="form-control" placeholder="Enter your new password" v-model="newpass" required>
       </div>
       <button class="btn btn-primary">change password</button>
     </form>
@@ -25,16 +25,14 @@ export default {
     return {
       oldpass: '',
       newpass: '',
-      error: false,
-      errMsg: 'An error occured.'
+      error: null
     }
   },
   methods: {
     passwordChange () {
       this.$cognitoAuth.changePassword(this.oldpass, this.newpass, (err, result) => {
         if (err) {
-          this.error = true
-          this.errMsg = err.message
+          this.error = err
           console.error(err)
         } else {
           console.log('Password change successful:', result)

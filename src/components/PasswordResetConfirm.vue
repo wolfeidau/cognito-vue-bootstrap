@@ -3,17 +3,17 @@
     <h2>Confirm Password Reset</h2>
     <p>Enter your confirmation code which was emailed to you and a new password.</p>
     <div class="alert alert-danger" v-if="error">
-      <p v-if="error" class="error">{{ errMsg }}</p>
+      <p v-if="error" class="error">{{ error.message }}</p>
     </div>
     <form @submit.prevent="passwordResetConfirm">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter your username" v-model="username">
+        <input type="text" class="form-control" placeholder="Enter your username" v-model="username" required>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter your confirmation code" v-model="code">
+        <input type="text" class="form-control" placeholder="Enter your confirmation code" v-model="code" required>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Enter your password" v-model="pass" >
+        <input type="password" class="form-control" placeholder="Enter your password" v-model="pass" required>
       </div>
       <button class="btn btn-primary">confirm password reset</button>
     </form>
@@ -29,16 +29,14 @@ export default {
       username: '',
       code: '',
       pass: '',
-      error: false,
-      errMsg: 'An error occured.'
+      error: null
     }
   },
   methods: {
     passwordResetConfirm () {
       this.$cognitoAuth.confirmPassword(this.username, this.code, this.pass, (err, result) => {
         if (err) {
-          this.error = true
-          this.errMsg = err.message
+          this.error = err
           console.error(err)
         } else {
           console.log('Signup successful:', result)
