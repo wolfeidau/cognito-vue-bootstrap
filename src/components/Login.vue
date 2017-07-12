@@ -9,10 +9,10 @@
     </div>
     <form @submit.prevent="login">
       <div class="form-group">
-        <input id="inputUsername" type="text" class="form-control" placeholder="Enter your username" v-model="username">
+        <input id="inputUsername" type="text" class="form-control" placeholder="Enter your username" v-model="username" required>
       </div>
       <div class="form-group">
-        <input id="inputPassword" type="password" class="form-control" placeholder="Enter your password" v-model="pass">
+        <input id="inputPassword" type="password" class="form-control" placeholder="Enter your password" v-model="pass" required>
       </div>
       <button class="btn btn-primary">login</button>
     </form>
