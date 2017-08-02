@@ -40,7 +40,6 @@ export default {
           this.error = err
           console.error(err)
         } else {
-          console.log('Login Successful:', result)
           this.$router.replace(this.$route.query.redirect || '/dashboard')
         }
       })
