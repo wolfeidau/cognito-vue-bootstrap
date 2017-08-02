@@ -2,6 +2,6 @@ import Vue from 'vue'
 import CognitoAuth from './cognito'
 import config from '@/config'
 
-Vue.use(CognitoAuth)
+Vue.use(CognitoAuth, config)
 
-export default new CognitoAuth(config)
+export default new CognitoAuth()

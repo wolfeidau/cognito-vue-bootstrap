@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="row marketing">
     <h2>Dashboard</h2>
     <p>Yay you made {{ user.username }} it!</p>
     <blockquote>{{ token }}</blockquote>

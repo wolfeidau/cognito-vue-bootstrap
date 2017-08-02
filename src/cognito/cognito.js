@@ -3,20 +3,28 @@ import {CognitoUserPool, CognitoUser, AuthenticationDetails, CognitoUserAttribut
 
 export default class CognitoAuth {
 
-  constructor (options) {
-    console.log('options', options)
-
-    this.apps = []
-    this.options = options
+  constructor () {
     this.userSession = null
-    this.userPool = new CognitoUserPool({
-      UserPoolId: options.UserPoolId,
-      ClientId: options.ClientId
-    })
-    Config.region = options.region
+  }
+
+  configure (config) {
+    if (typeof config !== 'object' || Array.isArray(config)) {
+      throw new Error('[CognitoAuth error] valid option object required')
+    }
+    // used to inject an alternate pool if required for testing
+    if (config.userPool) {
+      this.userPool = config.userPool
+    } else {
+      this.userPool = new CognitoUserPool({
+        UserPoolId: config.UserPoolId,
+        ClientId: config.ClientId
+      })
+    }
+    Config.region = config.region
     Config.credentials = new CognitoIdentityCredentials({
-      IdentityPoolId: options.IdentityPoolId
+      IdentityPoolId: config.IdentityPoolId
     })
+    this.options = config
   }
 
   isAuthenticated (cb) {
@@ -26,7 +34,6 @@ export default class CognitoAuth {
         if (err) {
           return cb(err, false)
         }
-        console.log('UserLoginService: Session is', session.isValid())
         return cb(null, true)
       })
     } else {
@@ -137,6 +144,9 @@ export default class CognitoAuth {
     })
   }
 
+  /**
+   * Logout of your cognito session.
+   */
   logout () {
     this.getCurrentUser().signOut()
     this.onChange(false)
@@ -148,10 +158,10 @@ export default class CognitoAuth {
    * @param {*} cb callback
    */
   getIdToken (cb) {
-    if (this.userPool.getCurrentUser() == null) {
+    if (this.getCurrentUser() == null) {
       return cb(null, null)
     }
-    this.userPool.getCurrentUser().getSession((err, session) => {
+    this.getCurrentUser().getSession((err, session) => {
       if (err) return cb(err)
       if (session.isValid()) {
         return cb(null, session.getIdToken().getJwtToken())
@@ -162,10 +172,6 @@ export default class CognitoAuth {
 
   getCurrentUser () {
     return this.userPool.getCurrentUser()
-  }
-
-  init (app) {
-    this.apps.push(app)
   }
 
   // very primitive change listener
@@ -181,7 +187,7 @@ CognitoAuth.install = function (Vue, options) {
     beforeCreate () {
       if (this.$options.cognitoAuth) {
         this._cognitoAuth = this.$options.cognitoAuth
-        this._cognitoAuth.init(this)
+        this._cognitoAuth.configure(options)
       }
     }
   })

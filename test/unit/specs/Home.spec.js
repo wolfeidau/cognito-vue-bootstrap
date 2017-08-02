@@ -1,22 +1,22 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import Home from '@/components/Home'
+import CognitoAuth from './cognito'
 
-// var cognitoAuth = {
-//   isAuthenticated: (cb) => {
-//     return cb(null, true)
-//   }
-// }
+const cognitoAuth = new CognitoAuth()
 
 describe('Home.vue', () => {
   it('should render correct contents', () => {
-    // const vm = new Vue({
-    //   el: document.createElement('div'),
-    //   cognitoAuth,
-    //   render: (h) => h(Home)
-    // })
-    const Constructor = Vue.extend(Home)
-    const HomeComponent = new Constructor().$mount()
-    expect(HomeComponent.$el.querySelector('h2').textContent)
+    Vue.use(VueRouter)
+    Vue.use(CognitoAuth)
+    const router = new VueRouter({routes: []})
+    const vm = new Vue({
+      el: document.createElement('div'),
+      cognitoAuth,
+      router,
+      render: (h) => h(Home)
+    })
+    expect(vm.$el.querySelector('h2').textContent)
       .to.equal('Welcome')
   })
 })

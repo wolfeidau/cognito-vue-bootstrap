@@ -13,7 +13,6 @@ Vue.use(Router)
 
 function requireAuth (to, from, next) {
   cognitoAuth.isAuthenticated((err, loggedIn) => {
-    console.log('requireAuth login check', err, loggedIn)
     if (err) return next()
     if (!loggedIn) {
       next({
