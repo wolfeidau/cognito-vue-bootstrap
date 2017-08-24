@@ -2,7 +2,6 @@ import {Config, CognitoIdentityCredentials} from 'aws-sdk'
 import {CognitoUserPool, CognitoUser, AuthenticationDetails, CognitoUserAttribute} from 'amazon-cognito-identity-js'
 
 export default class CognitoAuth {
-
   constructor () {
     this.userSession = null
   }
