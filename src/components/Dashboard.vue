@@ -11,7 +11,8 @@ import jwtDecode from 'jwt-decode'
 export default {
   data () {
     return {
-      token: 'Loading token..'
+      token: 'Loading token..',
+      user: {}
     }
   },
   created () {

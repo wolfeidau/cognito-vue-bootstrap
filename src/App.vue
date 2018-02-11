@@ -14,7 +14,7 @@
     </div>
     <div class="container">
       <template>
-        <router-view></router-view>
+        <router-view :loggedIn="loggedIn"></router-view>
       </template>
     </div>
     <footer class="footer">
