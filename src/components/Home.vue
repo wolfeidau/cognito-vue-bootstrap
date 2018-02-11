@@ -17,11 +17,7 @@
 
 <script>
 export default {
-  data () {
-    return {
-      loggedIn: false
-    }
-  },
+  props: ['loggedIn'],
   created: function () {
     this.$cognitoAuth.isAuthenticated((err, loggedIn) => {
       if (err) {
