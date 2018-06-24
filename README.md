@@ -26,9 +26,9 @@ For more information on this process see [Exporting and Importing AWS Mobile Hub
 
 Once you have imported the project you will have created:
 
-# An S3 bucket with Cloudfront for your web application.
-# A Cognito pool to store your users
-# An analytics project to capture metrics on your users login / failure ect.
+* An S3 bucket with Cloudfront for your web application.
+* A Cognito pool to store your users
+* An analytics project to capture metrics on your users login / failure ect.
 
 Click on the integrate button in your aws mobile project, the download and extract the cloud config zip file, find `aws-exports.js` inside, and place it in `src/` directory.
 
@@ -55,12 +55,12 @@ aws --region ap-southeast-2 s3 sync dist/ s3://cognitovuebootstrap-hosting-mobil
 
 To host a website on a custom URL using AWS mobile I have found some changes to the current setup. Navigating to the buckets and CDN configuration is done via the `Hosting And Streaming` panel in the mobile project UI.
 
-# disable website hosting on the hosting S3 bucket
-# add an Error Page which sends any 404 (not found) errors to `/index.html` in cloudfront
-# enable redirect http -> https on the origin
-# configure a route53 domain for your website
-# configure a AWS Certificate Manager (ACM) certificate for your domain
-# add an A record in route53 of type `alias` pointing to your Cloudfront distribution, then update the origin domain name to match the FQDN.
+* disable website hosting on the hosting S3 bucket
+* add an Error Page which sends any 404 (not found) errors to `/index.html` in cloudfront
+* enable redirect http -> https on the origin
+* configure a route53 domain for your website
+* configure a AWS Certificate Manager (ACM) certificate for your domain
+* add an A record in route53 of type `alias` pointing to your Cloudfront distribution, then update the origin domain name to match the FQDN.
 
 ## Todo
 
