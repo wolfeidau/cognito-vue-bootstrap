@@ -8,10 +8,6 @@
       <b-nav-item to="/dashboard">Dashboard</b-nav-item>
     </b-navbar-nav>
     <b-navbar-nav class="ml-auto">
-      <!-- <b-nav-item 
-        v-if="!isAuthenticated" 
-        class="nav-btn" 
-        to="/signUp"><span class="nav-username">Sign Up</span></b-nav-item> -->
       <b-nav-item 
         v-if="!isAuthenticated" 
         class="nav-btn" 
@@ -29,6 +25,12 @@
           <b-dropdown-item to="/signOut"><icon name="sign-out"/><span class="nav-username">Sign Out</span></b-dropdown-item>
         </b-row>
       </b-nav-item-dropdown>
+      <b-nav-item 
+        class="nav-btn" 
+        href="https://twitter.com/wolfeidau"><icon name="twitter"/></b-nav-item>
+      <b-nav-item 
+        class="nav-btn" 
+        href="https://github.com/wolfeidau/cognito-vue-bootstrap"><icon name="github"/></b-nav-item>
     </b-navbar-nav>
   </b-navbar>    
 </template>
@@ -38,6 +40,8 @@ import { mapState } from 'vuex'
 
 import 'vue-awesome/icons/user-circle'
 import 'vue-awesome/icons/sign-out'
+import 'vue-awesome/icons/github'
+import 'vue-awesome/icons/twitter'
 
 export default {
     name: 'Navbar',
