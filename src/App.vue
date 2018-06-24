@@ -35,6 +35,13 @@ export default {
     position: relative;
 }
 
+.b-main-content {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .b-form-1 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
