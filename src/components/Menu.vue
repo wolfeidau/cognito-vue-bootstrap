@@ -8,11 +8,14 @@
       <b-nav-item to="/dashboard">Dashboard</b-nav-item>
     </b-navbar-nav>
     <b-navbar-nav class="ml-auto">
+      <!-- <b-nav-item 
+        v-if="!isAuthenticated" 
+        class="nav-btn" 
+        to="/signUp"><span class="nav-username">Sign Up</span></b-nav-item> -->
       <b-nav-item 
         v-if="!isAuthenticated" 
         class="nav-btn" 
-        to="/signIn"><icon name="sign-in"/><span> Sign In</span></b-nav-item>
-      <!-- <button v-if="!isAuthenticated" class="btn btn-outline-light" type="button" :click="signIn()"><icon name="sign-in"></icon><span> Sign In</span></button> -->
+        to="/signIn"><span class="nav-username">Sign In</span></b-nav-item>
       <b-nav-item-dropdown 
         v-if="isAuthenticated" 
         right>
@@ -34,7 +37,6 @@
 import { mapState } from 'vuex'
 
 import 'vue-awesome/icons/user-circle'
-import 'vue-awesome/icons/sign-in'
 import 'vue-awesome/icons/sign-out'
 
 export default {
