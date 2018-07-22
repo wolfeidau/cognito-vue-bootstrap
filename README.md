@@ -20,7 +20,7 @@ Demo version is located at https://cognito-vue-bootstrapv2.wolfe.id.au/
 
 Before you start have a read over [What is Amazon Cognito?](http://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html)
 
-To setup this project you first need to configure an aws mobile project using the following snapshot [CognitoVue](https:console.aws.amazon.com/mobilehub/home#/snapshot/ef9bu3t7nsa8uz).
+To setup this project you first need to configure an aws mobile project using the following snapshot [CognitoVue](https://console.aws.amazon.com/mobilehub/home#/snapshot/ef9bu3t7nsa8uz).
 
 For more information on this process see [Exporting and Importing AWS Mobile Hub Projects](https://docs.aws.amazon.com/aws-mobile/latest/developerguide/project-import-export.html)
 
