@@ -64,11 +64,11 @@
 <script>
 import Vue from "vue"
 import router from "@/router"
-
-import { Logger } from "aws-amplify"
 import { mapGetters } from "vuex"
-
 import Alert from "@/components/auth/Alert.vue"
+import Amplify from "@aws-amplify/core"
+
+const Logger = Amplify.Logger
 
 Vue.component("v-alert", Alert)
 
