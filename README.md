@@ -69,6 +69,7 @@ To host a website on a custom URL using AWS mobile I have found some changes to 
 For a more detailed explanation on how things work, checkout:
 
 * [AWS Amplify Documentation](https://aws.github.io/aws-amplify/)
+* [AWS Amplify Modularization](https://github.com/aws-amplify/amplify-js/wiki/Amplify-modularization)
 * [docs for vue-cli](https://cli.vuejs.org/)
 * [docs for vue-router](http://router.vuejs.org/en/)
 * [docs for vuex](https://vuex.vuejs.org/)

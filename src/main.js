@@ -4,11 +4,10 @@ import Icon from 'vue-awesome/components/Icon'
 import App from '@/App.vue'
 import router from '@/router'
 import store from '@/store'
-import Amplify from 'aws-amplify'
-import aws_exports from '@/aws-exports'
+import Auth from "@aws-amplify/auth"
+import AuthConfig from '@/aws-exports'
 
-Amplify.Logger.LOG_LEVEL = 'DEBUG' // to show detailed logs from Amplify library
-Amplify.configure(aws_exports)
+Auth.configure(AuthConfig)
 
 Vue.use(BootstrapVue)
 Vue.component('icon', Icon)

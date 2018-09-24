@@ -1,5 +1,8 @@
-import { Auth, Logger } from 'aws-amplify'
+import Auth from "@aws-amplify/auth"
+import Amplify from "@aws-amplify/core"
 
+const Logger = Amplify.Logger
+Logger.LOG_LEVEL = "DEBUG" // to show detailed logs from Amplify library
 const logger = new Logger("store:auth")
 
 // initial state

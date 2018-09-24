@@ -9,8 +9,8 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "amazon-cognito-identity-js": "^2.0.9",
-    "aws-amplify": "^0.4.4",
+    "@aws-amplify/auth": "^1.2.3",
+    "@aws-amplify/core": "^1.0.12",
     "bootstrap-vue": "^2.0.0-rc.11",
     "vue": "^2.5.16",
     "vue-awesome": "^2.3.7",
