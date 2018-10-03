@@ -56,7 +56,6 @@ router.beforeEach((to, from, next) => {
 
     // is there a meta and auth attribute?
     if (to.meta && to.meta.auth !== undefined) {
-
         // if the page requires auth
         if (to.meta.auth) {
             // and we are authenticated?
@@ -66,12 +65,6 @@ router.beforeEach((to, from, next) => {
             }
             // otherwise off to the sign in page
             router.push({ name: 'signIn' })
-            return
-        }
-        // otherwise are we already authenticated?
-        if (store.getters['auth/isAuthenticated']) {
-            // yes we are, so off to dashboard
-            router.push({ name: 'dashboard' })
             return
         }
         next() // route normally
