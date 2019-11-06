@@ -40,11 +40,6 @@ export default {
   padding: 0;
 }
 
-.fa-icon {
-  top: 0.125em;
-  position: relative;
-}
-
 .b-main-content {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;

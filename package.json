@@ -20,6 +20,7 @@
     "vuex-localstorage": "^1.0.0"
   },
   "devDependencies": {
+    "@testing-library/vue": "^4.1.0",
     "@vue/cli-plugin-babel": "^4.0.0",
     "@vue/cli-plugin-eslint": "^4.0.0",
     "@vue/cli-plugin-router": "^4.0.0",
