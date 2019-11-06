@@ -1,25 +1,27 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import createPersist from 'vuex-localstorage'
+import Vue from "vue";
+import Vuex from "vuex";
+import createPersist from "vuex-localstorage";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 // Modules
-import auth from './modules/auth'
+import auth from "./modules/auth";
 
-const debug = process.env.NODE_ENV !== 'production'
+const debug = process.env.NODE_ENV !== "production";
 
 const store = new Vuex.Store({
-    modules: {
-        auth,
-    },
-    strict: debug,
-    plugins: [createPersist({
-        namespace: 'cognito-vue-bootstrap',
-        initialState: {},
-        // ONE_WEEK
-        expires: 7 * 24 * 60 * 60 * 1e3
-    })]
-})
+  modules: {
+    auth
+  },
+  strict: debug,
+  plugins: [
+    createPersist({
+      namespace: "cognito-vue-bootstrap",
+      initialState: {},
+      // ONE_WEEK
+      expires: 7 * 24 * 60 * 60 * 1e3
+    })
+  ]
+});
 
-export default store
+export default store;

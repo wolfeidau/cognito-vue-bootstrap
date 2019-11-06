@@ -1,48 +1,48 @@
 <template>
   <div id="app">
-    <b-container 
-      class="main" 
-      fluid>
-      <v-menu/>
-      <router-view/>
-      <v-footer/>
+    <b-container class="main" fluid>
+      <v-menu />
+      <router-view />
+      <v-footer />
     </b-container>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import Menu from '@/components/Menu.vue'
-import Footer from '@/components/Footer.vue'
+import Vue from "vue";
+import Menu from "@/components/Menu.vue";
+import Footer from "@/components/Footer.vue";
+import Icon from "vue-awesome/components/Icon";
 
-Vue.component('v-menu', Menu)
-Vue.component('v-footer', Footer)
+Vue.component("v-menu", Menu);
+Vue.component("v-footer", Footer);
+Vue.component("v-icon", Icon);
 
 export default {
-  name: 'App'
-}
+  name: "App"
+};
 </script>
 
 <style>
-@import '~bootstrap/dist/css/bootstrap.css';
-@import '~bootstrap-vue/dist/bootstrap-vue.css';
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
 }
 
-.main{
+.main {
   margin: 0;
   padding: 0;
 }
 
 .fa-icon {
-    top: .125em;
-    position: relative;
+  top: 0.125em;
+  position: relative;
 }
 
 .b-main-content {
@@ -57,7 +57,6 @@ export default {
   padding-bottom: 1.5rem;
   margin-right: 0;
   margin-left: 0;
-  border-width: .2rem;
+  border-width: 0.2rem;
 }
-
 </style>

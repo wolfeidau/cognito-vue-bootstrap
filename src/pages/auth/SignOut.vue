@@ -6,14 +6,13 @@
   </b-row>
 </template>
 
-
 <script>
-import router from "@/router"
+import router from "@/router";
 
 export default {
   async created() {
-    await this.$store.dispatch("auth/signOut")
-    router.push("/")
+    await this.$store.dispatch("auth/signOut");
+    router.push("/");
   }
-}
+};
 </script>

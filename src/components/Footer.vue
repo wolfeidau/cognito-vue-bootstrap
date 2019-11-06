@@ -9,15 +9,13 @@
 </template>
 
 <script>
-export default {
-    
-}
+export default {};
 </script>
 
 <style>
 .bd-footer {
   margin-top: 2em;
-  border-top: .2rem #f7f7f7 solid !important;
+  border-top: 0.2rem #f7f7f7 solid !important;
 }
 
 .bd-footer-copyright {

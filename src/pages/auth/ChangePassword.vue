@@ -8,56 +8,55 @@
           <b-form @submit.prevent="passwordChange">
             <b-form-group
               label="Current Password:"
-              label-for="currentPasswordInput">
-              <b-form-input 
+              label-for="currentPasswordInput"
+            >
+              <b-form-input
                 id="currentPasswordInput"
                 type="password"
                 v-model="currentPassword"
                 required
-                placeholder="Enter Current Password"/>
+                placeholder="Enter Current Password"
+              />
             </b-form-group>
-            <b-form-group
-              label="New Password:"
-              label-for="newPasswordInput">
-              <b-form-input 
+            <b-form-group label="New Password:" label-for="newPasswordInput">
+              <b-form-input
                 id="newPasswordInput"
                 type="password"
                 v-model="newPassword"
                 required
-                placeholder="Enter New Password"/>
+                placeholder="Enter New Password"
+              />
             </b-form-group>
-            <b-button 
-              type="submit" 
-              variant="primary">Submit</b-button>
+            <b-button type="submit" variant="primary">Submit</b-button>
           </b-form>
         </div>
       </b-col>
     </b-row>
     <b-row class="justify-content-md-center">
       <b-col cols="4">
-        <v-alert/>
+        <v-alert />
       </b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
-import Vue from "vue"
+import Vue from "vue";
 
-import { mapGetters } from "vuex"
-import router from "@/router"
-import store from "@/store"
+import { mapGetters } from "vuex";
+import router from "@/router";
+import store from "@/store";
 
-import Alert from "@/components/auth/Alert.vue"
+import Alert from "@/components/auth/Alert.vue";
 
-Vue.component("v-alert", Alert)
+Vue.component("v-alert", Alert);
 
 export default {
   data() {
     return {
       currentPassword: "",
       newPassword: ""
-    }
+    };
   },
   computed: {
     ...mapGetters("auth", ["hasAuthenticationStatus"])
@@ -66,12 +65,12 @@ export default {
     async passwordChange() {
       await store.dispatch("auth/passwordChange", {
         currentPassword: this.currentPassword,
-        newPassword: this.newPassword,
-      })
+        newPassword: this.newPassword
+      });
       if (!this.hasAuthenticationStatus) {
-        router.push("dashboard")
+        router.push("dashboard");
       }
     }
   }
-}
+};
 </script>
