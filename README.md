@@ -30,7 +30,7 @@ Once you have imported the project you will have created:
 * A Cognito pool to store your users
 * An analytics project to capture metrics on your users login / failure ect.
 
-Click on the integrate button in your aws mobile project, the download and extract the cloud config zip file, find `aws-exports.js` inside, and place it in `src/` directory.
+Click on the integrate button in your aws mobile project, the download and extract the cloud config zip file, find `aws-exports.js` inside, and replace this file in `src/` directory.
 
 I use [yarn](https://yarnpkg.com/) to build and run this project.
 
@@ -61,10 +61,6 @@ To host a website on a custom URL using AWS mobile I have found some changes to 
 * configure a route53 domain for your website
 * configure a AWS Certificate Manager (ACM) certificate for your domain
 * add an A record in route53 of type `alias` pointing to your Cloudfront distribution, then update the origin domain name to match the FQDN.
-
-## Todo
-
-* Sort out Testing/Mocking
 
 For a more detailed explanation on how things work, checkout:
 
